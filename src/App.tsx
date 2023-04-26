@@ -1,14 +1,14 @@
-import React from "react";
-import logo from "./logo.svg";
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import ResourceList from "./Component/Resources/ResourceList";
-
+import Header from "./Component/Header";
 function App() {
   return (
     <>
-      <div>
-        <ResourceList />
-        {/* <Resources /> */}
+      <div className="m-2 p-2">
+        <Header />
+        <div className="flex w-full">
+          <Outlet></Outlet>
+        </div>
       </div>
     </>
   );
