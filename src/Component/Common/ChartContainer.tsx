@@ -18,7 +18,7 @@ const ChartContainer: React.FC<Resource> = ({ selectedResource }) => {
 
   const [resourcesDrilldownMappedData, setResourcesDrilldownMappedData] =
     useState<any[]>([]);
-  let options = {
+  const options = {
     chart: {},
     title: {
       text: "Cost Details",
@@ -76,7 +76,6 @@ const ChartContainer: React.FC<Resource> = ({ selectedResource }) => {
       series: resourcesDrilldownMappedData,
     },
   } as Highcharts.Options;
-
   const getResourceCost = async () => {
     if (selectedResource) {
       const data = await fetch(`${GET_URL}${tabName}/${selectedResource}`);
@@ -88,20 +87,18 @@ const ChartContainer: React.FC<Resource> = ({ selectedResource }) => {
       }
     }
   };
-
   const renderChart = () => (
     <HighchartsReact
       ref={chartComponentRef}
       highcharts={Highcharts}
       options={options}
+      immutable={true}
     />
   );
-
   useEffect(() => {
     getResourceCost();
   }, [selectedResource]);
-
-  return <div className="w-[85%]">{renderChart()}</div>;
+  return <>{<div className="w-[85%]">{renderChart()}</div>};</>;
 };
 
 export default ChartContainer;
