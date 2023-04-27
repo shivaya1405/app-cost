@@ -98,7 +98,7 @@ const ChartContainer: React.FC<Resource> = ({ selectedResource }) => {
   useEffect(() => {
     getResourceCost();
   }, [selectedResource]);
-  return <>{<div className="w-[85%]">{renderChart()}</div>};</>;
+  return <>{<div className="w-[85%]">{renderChart()}</div>}</>;
 };
 
 export default ChartContainer;

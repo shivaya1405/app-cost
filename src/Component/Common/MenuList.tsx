@@ -16,7 +16,7 @@ const MenuList = () => {
   };
   return (
     <div className="flex w-full">
-      <ul className="border max-h-full rounded-lg mb-2 border-gray-300 overflow-y-auto">
+      <ul className="border max-h-[50%] rounded-lg mb-2 border-gray-300 overflow-y-auto">
         {list.map((item: any, index) => (
           <MenuItem
             key={index}
